@@ -1,9 +1,13 @@
 #!/bin/bash
-# Replace vendor.camera.aux.packagelist and vendor_persist_camera_prop
-# Run as follows, ./device/motorola/targets/scripts/replace_camera_sepolicy.sh
+
+#
+# Copyright 2019-Present A-Team Digital Solutions
+# Copyright 2023 Electimon
+#
 
 shopt -s extglob
-read -p "Please run this script at the root of your synced source!, Ctrl-C to exit at this point, Enter to continue."
+read -p "This Will Patch Rom Camera SePolicy, Ctrl-C To Exit, Enter To Continue."
+echo ""
 find device/!(*qcom)/sepolicy -type f -exec sed -i "/vendor.camera.aux.packagelist/s/.*//" {} \;
 if [ $? -eq 0 ]; then
 	echo "Patch 1, Done!"

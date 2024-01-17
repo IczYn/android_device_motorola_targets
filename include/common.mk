@@ -11,6 +11,15 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+ 
+A_TEAM_PATH := device/motorola/A-Team
+
+# A-Team Custom Installer / Mods
+ifeq ($(CUSTOM_INSTALLER), true)
+$(call inherit-product, $(A_TEAM_PATH)/A-Team.mk)
+PRODUCT_SOONG_NAMESPACES += \
+    [A-Team_Installer]
+endif
 
 # Device
 ## Extract device name from TARGET_PRODUCT
